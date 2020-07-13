@@ -4,7 +4,7 @@ a {
   color: black!important;
 }
 
-.brand-logo, h5 {
+.brand-logo, h4, h5, h6 {
   font-family: 'Grand Hotel', cursive;
 }
 
