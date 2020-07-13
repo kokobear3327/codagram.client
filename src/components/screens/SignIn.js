@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
     return ( 
@@ -14,8 +15,11 @@ const SignIn = () => {
             placeholder="password"
             />
             <button className="btn waves-effect waves-light #1e88e5 blue darken-1">
-                Login
+                Signin
             </button>
+            <h5>
+            <Link to="/signup">Need to make an account?</Link>
+        </h5>
     
             </div>
         </div>
