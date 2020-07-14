@@ -10,8 +10,8 @@ const Home = () => {
                 </div>
                 <div className="card-content">
                 <i className="material-icons" style={{color:"red"}}>favorite</i>
-                    <h6>title</h6>
-                    <p>this is an amazing post</p>
+                <h6>title your posts</h6> 
+                <p>this is an amazing description of what the picture is all about</p>
                     <input type="text" placeholder="add a comment"/>
                 </div>
             </div>
@@ -22,8 +22,8 @@ const Home = () => {
                 </div>
                 <div className="card-content">
                 <i className="material-icons" style={{color:"red"}}>favorite</i>
-                    <h6>title</h6> ̰
-                    <p>this is an amazing post</p>
+                    <h6>title your posts</h6> 
+                    <p>this is an amazing description of what the picture is all about</p>
                     <input type="text" placeholder="add a comment"/>
                 </div>
             </div>
@@ -34,8 +34,8 @@ const Home = () => {
                 </div>
                 <div className="card-content">
                 <i className="material-icons" style={{color:"red"}}>favorite</i>
-                    <h6>title</h6>
-                    <p>this is an amazing post</p>
+                <h6>title your posts</h6> 
+                <p>this is an amazing description of what the picture is all about</p>
                     <input type="text" placeholder="add a comment"/>
                 </div>
             </div>
@@ -46,8 +46,8 @@ const Home = () => {
                 </div>
                 <div className="card-content">
                 <i className="material-icons" style={{color:"red"}}>favorite</i>
-                    <h6>title</h6>
-                    <p>this is an amazing post</p>
+                <h6>title your posts</h6> 
+                <p>this is an amazing description of what the picture is all about</p>
                     <input type="text" placeholder="add a comment"/>
                 </div>
             </div>
