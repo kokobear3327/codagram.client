@@ -1,4 +1,4 @@
-import React, {useEffect, createContext, useReducer } from 'react';
+import React, {useEffect, createContext, useReducer, useContext } from 'react';
 import NavBar from './components/Navbar';
 import "./App.css";
 import {BrowserRouter, Route, Switch, useHistory} from 'react-router-dom';
@@ -14,10 +14,13 @@ export const UserContext = createContext()
 
 const Routing = ()=>{
   const history = useHistory()
+  const {state, dispatch} = useContext(UserContext)
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem("user"));
+
     if(user){
-      history.push('/')
+      dispatch({type:"USER", payload: user})
+      history.push('/') 
     }else{
       history.push('/signin')
     }
