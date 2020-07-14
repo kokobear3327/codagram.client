@@ -9,6 +9,7 @@ const Home = () => {
             }
         }).then(res=>res.json())
         .then(result=>{
+            console.log(result)
             setData(result.posts)
         })
     }, [])
@@ -24,6 +25,7 @@ const Home = () => {
                     </div>
                     <div className="card-content">
                     <i className="material-icons" style={{color:"red"}}>favorite</i>
+                    <i class="material-icons">add</i>
                     <h6>{item.title}</h6> 
                     <p>{item.body}</p>
                         <input type="text" placeholder="add a comment"/>
