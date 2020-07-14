@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import M from 'materialize-css';
 
 const SignIn = () => {
     const [name, setName] = useState("")
@@ -18,7 +19,9 @@ const SignIn = () => {
                 })
             }).then(res=>res.json())
             .then(data=>{
-                console.log(data)
+                if(data.error){
+                    M.toast({html: data.error})
+                }
             })
     }
 
