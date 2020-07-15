@@ -5,9 +5,9 @@ import "../../App.css";
 
 const Profile = () => {
     const [userProfile, setProfile] = useState(null)
-    const [showfollow, setShowFollow] = useState(true)
     const {state, dispatch} = useContext(UserContext)
     const {userid} = useParams()
+    const [showfollow, setShowFollow] = useState(state?!state.following.includes(userid):true)
 
     useEffect(()=>{
         fetch(`/user/${userid}`,{
