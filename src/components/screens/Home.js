@@ -87,10 +87,6 @@ const Home = () => {
                     onClick={()=>{likePost(item._id)}}
                     >thumb_up</i>
                     }
-  
-
-                    <i className="material-icons">mood</i>
-                    <i className="material-icons">mood_bad</i>
                     <h6>{item.likes.length} likes</h6>
                     <h6>{item.title}</h6> 
                     <p>{item.body}</p>
