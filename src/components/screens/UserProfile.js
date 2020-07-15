@@ -14,7 +14,6 @@ const Profile = () => {
             }
         }).then(res=>res.json())
         .then(result=>{
-            console.log(result)
             setProfile(result)
         })
      },[])
@@ -30,8 +29,10 @@ const Profile = () => {
                 followId:userid
             })
         }).then(res=>res.json())
-        .then(data=>{
+        .then(data=>{  
             console.log(data)
+            dispatch({type:"UPDATE", payload:{following:data.following, followers:data.followers}})
+            localStorage.setItem("user", JSON.stringify(data))
         })
      }
 
@@ -56,8 +57,8 @@ const Profile = () => {
                     <h5>{userProfile.user.email}</h5>
                     <div style={{display: "flex", justifyContent: "space-between", width: "108%"}}>
                         <h6>{userProfile.posts.length}</h6>
-                        <h6>420 followers</h6>
-                        <h6>13 following</h6>
+                        <h6>{userProfile.user.followers.length} followers</h6>
+                        <h6>{userProfile.user.following.length} following</h6>
                     </div>
                     <button className="btn waves-effect waves-light #1e88e5 blue darken-1"
                     onClick={()=>followUser()}>
