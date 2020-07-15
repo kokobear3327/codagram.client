@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 
 const Profile = () => {
     const [userProfile, setProfile] = useState(null)
+    const [showfollow, setShowFollow] = useState(true)
     const {state, dispatch} = useContext(UserContext)
     const {userid} = useParams()
 
@@ -33,8 +34,49 @@ const Profile = () => {
             console.log(data)
             dispatch({type:"UPDATE", payload:{following:data.following, followers:data.followers}})
             localStorage.setItem("user", JSON.stringify(data))
+            setProfile((prevState)=>{
+                return {
+                    ...prevState,
+                    user:{
+                        ...prevState.user,
+                        followers:[...prevState.user.followers,data._id]
+                    }
+                }
+            })
+            setShowFollow(false)
         })
      }
+
+     const unfollowUser = ()=>{
+        fetch('/unfollow',{
+            method:"put",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem('jwt')
+            },
+            body:JSON.stringify({
+                unfollowId:userid
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            
+            dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
+             localStorage.setItem("user",JSON.stringify(data))
+            
+             setProfile((prevState)=>{
+                const newFollower = prevState.user.followers.filter(item=>item != data._id )
+                 return {
+                     ...prevState,
+                     user:{
+                         ...prevState.user,
+                         followers:newFollower
+                        }
+                 }
+             })
+             setShowFollow(true)
+             
+        })
+    }
 
     return (
         <>
@@ -60,10 +102,17 @@ const Profile = () => {
                         <h6>{userProfile.user.followers.length} followers</h6>
                         <h6>{userProfile.user.following.length} following</h6>
                     </div>
-                    <button className="btn waves-effect waves-light #1e88e5 blue darken-1"
-                    onClick={()=>followUser()}>
-                        Follow
+                    {showfollow ?
+                        <button style={{ margin:"10px"}} className="btn waves-effect waves-light #1e88e5 blue darken-1"
+                        onClick={()=>followUser()}>
+                            Follow
+                        </button>
+                    : 
+                    <button style={{ margin:"10px"}} className="btn waves-effect waves-light #1e88e5 blue darken-1"
+                    onClick={()=>unfollowUser()}>
+                        UnFollow
                     </button>
+                    }
                 </div>
             </div>
         <div className="gallery">
