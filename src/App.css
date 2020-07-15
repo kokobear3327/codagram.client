@@ -53,3 +53,15 @@ a {
   right: 20px !important;
   left: auto !important;
 }
+
+.material-icons:hover {
+  cursor: pointer;
+}
+
+.follow-button {
+  border-radius:9px;
+}
+
+.unfollow-button {
+  border-radius:9px;
+}

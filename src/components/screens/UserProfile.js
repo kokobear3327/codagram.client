@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {UserContext} from '../../App'
 import {useParams} from 'react-router-dom'
+import "../../App.css";
 
 const Profile = () => {
     const [userProfile, setProfile] = useState(null)
@@ -103,12 +104,12 @@ const Profile = () => {
                         <h6>{userProfile.user.following.length} following</h6>
                     </div>
                     {showfollow ?
-                        <button style={{ margin:"10px"}} className="btn waves-effect waves-light #1e88e5 blue darken-1"
+                        <button style={{ margin:"10px"}} className="follow-button btn waves-effect waves-light #1e88e5 blue darken-1"
                         onClick={()=>followUser()}>
                             Follow
                         </button>
                     : 
-                    <button style={{ margin:"10px"}} className="btn waves-effect waves-light #1e88e5 blue darken-1"
+                    <button style={{ margin:"10px"}} className="unfollow-button btn waves-effect waves-light #1e88e5 blue darken-1"
                     onClick={()=>unfollowUser()}>
                         UnFollow
                     </button>
