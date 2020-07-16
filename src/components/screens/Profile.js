@@ -79,8 +79,8 @@ const Profile  = ()=>{
                    <h5>{state?state.email:"loading"}</h5>
                    <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
                        <h6>{mypics.length} posts</h6>
-                       <h6>{"0"} followers</h6>
-                       <h6>{"0"} following</h6>
+                       <h6>{state.followers?state.followers.length:"0"} followers</h6>
+                       <h6>{state.following?state.following.length:"0"} following</h6>
                    </div>
 
                </div>
